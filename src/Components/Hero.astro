@@ -1,0 +1,37 @@
+---
+// Hero.astro
+import Card from './utils/Cards/Card.astro';
+import Button from './utils/Buttons/Button.astro';
+
+interface Props {
+  name: string;
+  role: string;
+  description?: string;
+}
+
+const { name, role, description = "Cargando información..." } = Astro.props;
+---
+<section class="grid grid-cols-1 md:grid-cols-3 gap-10 py-16 items-center">
+  <Card class="md:col-span-2 flex flex-col justify-center space-y-5">
+    <h1 class="text-5xl md:text-6xl font-bold text-blue-400 leading-tight">{name}</h1>
+    <p class="text-2xl text-gray-300 font-light tracking-wide">{role}</p>
+    
+    <div class="space-y-4 py-4 text-gray-400 italic font-light">
+      <p>{description}</p>
+    </div>
+    
+    <div class="flex gap-4 pt-4">
+      <Button href="#contact">Contactar</Button>
+      <Button variant="outline" href="#projects">Ver Proyectos</Button>
+    </div>
+  </Card>
+
+  <div class="relative group mx-auto md:mx-0">
+    <div class="absolute -inset-1 bg-linear-to-r from-yellow-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+    <div class="relative aspect-3/4 w-full max-w-sm bg-slate-800 rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center">
+      <div class="w-full h-full flex items-center justify-center text-gray-500">
+         [Foto de Jose Alberto]
+      </div>
+    </div>
+  </div>
+</section>
